@@ -43,6 +43,9 @@ mv example.env .env
 
 ## 4. Launch Site
 Run the following command to bring up the site. After it's online, it can take a minute to initialize the database. Once it's done, the site will be accessible at the WORDPRESS_HTTP_PORT you set.
+```
+docker compose up -d
+```
 
 
 
