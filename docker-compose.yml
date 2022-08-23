@@ -36,6 +36,9 @@ services:
       - ${WORDPRESS_HTTP_PORT:?err}:80
     links:
       - wordpress
+    depends_on:
+      - wordpress
+    restart: always
   phpmyadmin:
     image: phpmyadmin
     restart: always
