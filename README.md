@@ -1,5 +1,11 @@
-# Wordpress PHP-FPM Dockder
-Docker Stack with Wordpress, PHP-FPM, and Nginx.
+# What is this?
+This repository contains all the files you need to start a Wordpress website accelerated by PHP-FPM and a MariaDB database, all contained in a Docker stack.
+
+# Getting Started
+## Install Docker Engine
+This is beyond the scope of this article. Please follow the instructions at https://docs.docker.com/engine/install/
+
+## Add your user to the Docker group
 
 
 # Running Behind A Reverse Proxy
