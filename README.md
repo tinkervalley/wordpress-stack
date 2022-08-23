@@ -27,3 +27,18 @@ sudo /etc/crontab
 ```
 0 9 * * *       root    sh /path/to/mysqldump/mysqldump.sh
 ```
+
+# Change PHP Values (Memory and Upload Limit)
+1. In the php folder, edit the php.ini file.
+```
+nano php.ini
+```
+2. The contents will look like this. You can adjust the values to your preference.
+```
+file_uploads = On
+memory_limit = 512M
+upload_max_filesize = 100M
+post_max_size = 100M
+max_execution_time = 300
+max_input_time = 1000
+```
