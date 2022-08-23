@@ -8,7 +8,7 @@ After you've installed Docker, please follow the Post-installation steps here (S
 
 ## 2. Clone The Repository
 1. In the command line, navigate to the folder you'd like to be the home for your wordpress installation. I recommend your user's home folder (~) or (/home/user).
-2.
+2. Clone the repository.
 ```
 git clone https://github.com/ahildebrand12/wordpress-stack
 ```
@@ -36,6 +36,13 @@ WORDPRESS_TAG=php8.1-fpm
 WORDPRESS_HTTP_PORT=8080
 PHPMYADMIN_PORT=8081
 ```
+Then rename the file to .env from example.env
+```
+mv example.env .env
+```
+
+## 4. Launch Site
+Run the following command to bring up the site. After it's online, it can take a minute to initialize the database. Once it's done, the site will be accessible at the WORDPRESS_HTTP_PORT you set.
 
 
 
