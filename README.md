@@ -13,3 +13,17 @@ define('FORCE_SSL_ADMIN', true);
 if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
 $_SERVER['HTTPS']='on';
 ```
+
+# Setting up SQL Backup Cron Job
+1. Install cron service. 
+```
+sudo apt install cron
+```
+2. Edit crontab file.
+```
+sudo /etc/crontab
+```
+3. Add the following cron job. This one will run every dat at 9PM. Be sure to actually edit the values in the mysqldump.sh file before adding cron job.
+```
+0 9 * * *       root    sh /path/to/mysqldump/mysqldump.sh
+```
