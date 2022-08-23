@@ -2,10 +2,41 @@
 This repository contains all the files you need to start a Wordpress website accelerated by PHP-FPM and a MariaDB database, all contained in a Docker stack.
 
 # Getting Started
-## Install Docker Engine
+## 1. Install Docker Engine
 This is beyond the scope of this article. Please follow the instructions at https://docs.docker.com/engine/install/
+After you've installed Docker, please follow the Post-installation steps here (Steps 1-3): https://docs.docker.com/engine/install/linux-postinstall/
 
-## Add your user to the Docker group
+## 2. Clone The Repository
+1. In the command line, navigate to the folder you'd like to be the home for your wordpress installation. I recommend your user's home folder (~) or (/home/user).
+2.
+```
+git clone https://github.com/ahildebrand12/wordpress-stack
+```
+3. You'll now have a folder called "wordpress-stack" in your chosen directory. This will be the name of your docker stack. Rename this folder to whatever you'd like to name your stack.
+```
+mv wordpress-stack mywordpresssite
+```
+4. CD into the folder.
+```
+cd mywordpresssite
+```
+
+## 3. Set Variables
+Inside the mywordpresssite folder, there is a file called example.env. You'll want to open this file with nano and edit the variables.
+```
+nano example.env
+```
+You'll see a file that looks like this. Fill in these variables with the necessary information. Once you're done, use the CTRL+O keys to save, and CTRL+X to exit.
+```
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+WORDPRESS_TAG=php8.1-fpm
+WORDPRESS_HTTP_PORT=8080
+PHPMYADMIN_PORT=8081
+```
+
 
 
 # Running Behind A Reverse Proxy
