@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   mysql:
     image: mariadb
     volumes:
@@ -10,6 +11,7 @@ services:
       MYSQL_USER: ${MYSQL_USER:?err}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:?err}
     restart: always
+
   wordpress:
     image: wordpress:${WORDPRESS_TAG:?err}
     volumes:
@@ -27,6 +29,7 @@ services:
     links:
       - mysql
     restart: always
+
   nginx:
     image: nginx:alpine
     volumes:
@@ -39,15 +42,23 @@ services:
     depends_on:
       - wordpress
     restart: always
-  phpmyadmin:
-    image: phpmyadmin
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - ./redis:/data
     restart: always
-    ports:
-      - ${PHPMYADMIN_PORT:?err}:80
-    environment:
-      - PMA_ARBITRARY=1
-      - UPLOAD_LIMIT=500M
-      - PMA_HOST=mysql
-      - PMA_PORT=3306
-    links:
-      - mysql
+     
+
+#  phpmyadmin:
+#    image: phpmyadmin
+#    restart: always
+#    ports:
+#      - ${PHPMYADMIN_PORT:?err}:80
+#    environment:
+#      - PMA_ARBITRARY=1
+#      - UPLOAD_LIMIT=500M
+#      - PMA_HOST=mysql
+#      - PMA_PORT=3306
+#    links:
+#      - mysql
