@@ -49,7 +49,7 @@ docker compose up -d
 
 
 
-# Running Behind A Reverse Proxy
+### Running Behind A Reverse Proxy
 If you're getting a redirect loop, you'll need to add the following code to your wp-config.php file.
 
 ```
