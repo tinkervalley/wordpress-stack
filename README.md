@@ -61,7 +61,7 @@ if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
 $_SERVER['HTTPS']='on';
 ```
 
-# Setting up SQL Backup Cron Job
+### Setting up SQL Backup Cron Job
 1. Install cron service. 
 ```
 sudo apt install cron
@@ -75,7 +75,7 @@ sudo /etc/crontab
 0 9 * * *       root    sh /path/to/mysqldump/mysqldump.sh
 ```
 
-# Change PHP Values (Memory and Upload Limit)
+### Change PHP Values (Memory and Upload Limit)
 1. In the php folder, edit the php.ini file.
 ```
 nano php.ini
@@ -89,3 +89,15 @@ post_max_size = 100M
 max_execution_time = 300
 max_input_time = 1000
 ```
+
+## Activate Redis Object Cache
+1. Add the following to the wp-config.php file in the html folder.
+```
+define('WP_REDIS_HOST', 'redis');
+```
+
+2. Install the "Redis Object Cache" plugin.
+3. In the plugin settings, click Enable Cache.
+
+## Folder Permissions
+Sometimes the folder permissions for the container directories can get reset for a variety of reasons, such as restoring the directory from a backup. Below are the required permissions for each folder
