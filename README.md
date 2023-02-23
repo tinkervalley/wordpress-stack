@@ -107,7 +107,8 @@ id
 You will see something like
 ```
 uid=1000(youruser) gid=1000(youruser)
-``` That is your user and group id.
+```
+That is your user and group id.
 
 ```
 wordpress-stack/
