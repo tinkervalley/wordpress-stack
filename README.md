@@ -100,4 +100,29 @@ define('WP_REDIS_HOST', 'redis');
 3. In the plugin settings, click Enable Cache.
 
 ## Folder Permissions
-Sometimes the folder permissions for the container directories can get reset for a variety of reasons, such as restoring the directory from a backup. Below are the required permissions for each folder
+The folder permissions can get reset for a variety of reasons. If this happens, your wordpress site might not load or give permission errors. Below are the necessary user:group ownership permissions for each folder and all subfolders and files. Note that 1000:1000 represents your current user. You can find your user and group ip with the following command.
+```
+id
+```
+You will see something like
+```
+uid=1000(youruser) gid=1000(youruser)
+``` That is your user and group id.
+
+```
+wordpress-stack/
+├─ php/     1000:1000
+├─ nginx/   1000:1000
+├─ html/    33:33
+├─ mysql/   999:999
+├─ redis/   999:1000
+```
+
+You can correct the permissions with the commands
+```
+[user@server wordpress-stack]$ sudo chown -R 1000:1000 php/
+[user@server wordpress-stack]$ sudo chown -R 1000:1000 nginx/
+[user@server wordpress-stack]$ sudo chown -R 33:33 html/
+[user@server wordpress-stack]$ sudo chown -R 999:999 mysql/
+[user@server wordpress-stack]$ sudo chown -R 999:1000 redis/
+```
