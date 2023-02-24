@@ -1,19 +1,11 @@
 version: '3'
 services:
 
-  mysql:
-    image: mariadb
-    volumes:
-      - ./mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?err}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:?err}
-      MYSQL_USER: ${MYSQL_USER:?err}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?err}
-    restart: always
-
   wordpress:
-    image: wordpress:${WORDPRESS_TAG:?err}
+#    image: wordpress:${WORDPRESS_TAG:?err} This is the official docker image. Instead, we're using the dockerfile that adds additional php extensions for our project, such as redis.
+    build:
+      context: ./docker
+      dockerfile: ./docker/dockerfile
     volumes:
       - ./html:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/conf.d/wordpress.ini
@@ -28,6 +20,17 @@ services:
       WORDPRESS_TABLE_PREFIX: wp_
     links:
       - mysql
+    restart: always
+
+  mysql:
+    image: mariadb
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?err}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:?err}
+      MYSQL_USER: ${MYSQL_USER:?err}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?err}
     restart: always
 
   nginx:
