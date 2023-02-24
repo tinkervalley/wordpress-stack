@@ -4,7 +4,6 @@ services:
   wordpress:
 #    image: wordpress:${WORDPRESS_TAG:?err} This is the official docker image. Instead, we're using the dockerfile that adds additional php extensions for our project, such as redis.
     build:
-      context: ./docker
       dockerfile: ./docker/local.dockerfile
     volumes:
       - ./html:/var/www/html
