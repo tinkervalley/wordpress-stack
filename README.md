@@ -114,7 +114,7 @@ That is your user and group id.
 wordpress-stack/
 ├─ php/     1000:1000
 ├─ nginx/   1000:1000
-├─ html/    33:33
+├─ html/    82:82
 ├─ mysql/   999:999
 ├─ redis/   999:1000
 ```
