@@ -1,6 +1,6 @@
 FROM wordpress:php8.1-fpm-alpine
 
-ADD phpredis-5.3.7.tar.gz /tmp/
+COPY docker/phpredis-5.3.7.tar.gz /tmp/
 
 RUN apk update \
   && apk add git
