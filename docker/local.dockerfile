@@ -5,6 +5,8 @@ COPY docker/vips-1.0.13.tgz /tmp/
 
 RUN apk update \
   && apk add git
+  
+RUN apk add vips
 
 RUN docker-php-source extract \
   && tar xfz /tmp/phpredis-5.3.7.tar.gz \
