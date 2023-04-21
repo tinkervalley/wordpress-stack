@@ -129,8 +129,8 @@ You can correct the permissions with the commands
 ```
 
 ## Recommended Plugins
-These are my recommended plugins for a fast wordpress site. 
-- Redis Object Cache
+These are my recommended plugins.
+- Redis Object Cache (follow instructions above to activate)
 - UpDraft Plus
 - WP Super Cache
-- WebP Express
+- WebP Express (Nginx already preconfigured to work with webp.)
