@@ -104,11 +104,11 @@ The folder permissions can get reset for a variety of reasons. If this happens, 
 ```
 id
 ```
-You will see something like
+You will see something like this. That is your user and group id.
 ```
 uid=1000(youruser) gid=1000(youruser)
 ```
-That is your user and group id.
+Here are the proper folder permissions.
 
 ```
 wordpress-stack/
@@ -123,7 +123,14 @@ You can correct the permissions with the commands
 ```
 [user@server wordpress-stack]$ sudo chown -R 1000:1000 php/
 [user@server wordpress-stack]$ sudo chown -R 1000:1000 nginx/
-[user@server wordpress-stack]$ sudo chown -R 33:33 html/
+[user@server wordpress-stack]$ sudo chown -R 82:82 html/
 [user@server wordpress-stack]$ sudo chown -R 999:999 mysql/
 [user@server wordpress-stack]$ sudo chown -R 999:1000 redis/
 ```
+
+## Recommended Plugins
+These are my recommended plugins for a fast wordpress site. 
+- Redis Object Cache
+- UpDraft Plus
+- WP Super Cache
+- WebP Express
