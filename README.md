@@ -128,6 +128,16 @@ You can correct the permissions with the commands
 [user@server wordpress-stack]$ sudo chown -R 999:1000 redis/
 ```
 
+## Mount Cache Directory in Memory for Faster Cache
+Edit the /etc/fstab file
+```
+sudo nano /etc/fstab
+```
+Add the following line, changing the directory to the directory of your wordpress cache folder.
+```
+tmpfs /home/user/sites/tinkervalley.ca/html/wp-content/cache tmpfs nosuid,nodev,noatime,user,uid=82,gid=82 0 0
+```
+
 ## Recommended Plugins
 These are my recommended plugins.
 - Redis Object Cache (follow instructions above to activate)
